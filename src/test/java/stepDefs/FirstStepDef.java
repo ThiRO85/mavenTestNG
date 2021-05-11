@@ -5,8 +5,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class FirstStepDef {
 
@@ -14,9 +16,15 @@ public class FirstStepDef {
 
     @Given("Launch the browser")
     public void launchTheBrowser() {
+        System.out.println("Launch the browser");
         //WebDriverManager.chromedriver().setup();
         //driver = new ChromeDriver();
-        System.out.println("Launch the browser");
+
+        //WebDriverManager.chromiumdriver().setup();
+        //ChromeOptions opt = new ChromeOptions().setBinary("C:\\Selenium\\BraveBrowserSetup32.exe");
+        //WebDriver driver = new ChromeDriver(opt);
+        //driver.get("https://www.google.com");
+        //driver.findElement(By.name("q")).sendKeys("Selenium");
     }
 
     @When("Hit Google on your browser")
@@ -25,8 +33,8 @@ public class FirstStepDef {
     }
 
     @Then("Enter {string} in the search text box")
-    public void enterInTheSearchTextBox(String arg0) {
-        System.out.println("Enter in the search text box");
+    public void enterInTheSearchTextBox(String string) {
+        System.out.println("Enter " + string + " in the search text box");
     }
 
     @And("Select the first result")
